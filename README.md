@@ -39,7 +39,7 @@
 כל push ל-`main` מפעיל את ה-workflow, שיוצר אוטומטית את מסד הנתונים D1, מריץ את הסכמה, יוצר את פרויקט ה-Pages ומעלה.
 אפשר גם להריץ ידנית: **Actions → Deploy to Cloudflare Pages → Run workflow**.
 
-הכתובת: `https://english-practice.pages.dev`
+הכתובת: `https://english-practice-3qc.pages.dev`
 
 ## פיתוח מקומי
 ```bash

@@ -45,4 +45,4 @@ fi
 echo "▶ Pages: מעלה"
 $W pages deploy --project-name "$PROJECT" --branch main --commit-dirty=true
 
-echo "✓ הסתיים: https://$PROJECT.pages.dev"
+echo "✓ הסתיים (הכתובת מופיעה למעלה בפלט של pages deploy)"
