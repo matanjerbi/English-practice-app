@@ -7,10 +7,16 @@ PROJECT="${PAGES_PROJECT:-english-practice}"
 DB_NAME="english-practice-db"
 W="npx --yes wrangler"
 
+if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
+  echo "✗ חסרים סודות: CLOUDFLARE_API_TOKEN ו/או CLOUDFLARE_ACCOUNT_ID"
+  echo "  יש להגדיר אותם ב-GitHub: Settings → Secrets and variables → Actions → לשונית Secrets → Repository secrets"
+  exit 1
+fi
+
 echo "▶ D1: מחפש את $DB_NAME"
 find_db() { $W d1 list --json 2>/dev/null | node -e '
   let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{
-    const i=s.indexOf("["); const list=JSON.parse(s.slice(i));
+    const i=s.indexOf("["); let list=[]; try { list=JSON.parse(s.slice(i)); } catch {}
     const db=list.find(x=>x.name===process.argv[1]); process.stdout.write(db?(db.uuid||db.database_id||""):"");
   })' "$DB_NAME"; }
 DB_ID="$(find_db || true)"
