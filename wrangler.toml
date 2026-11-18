@@ -1,0 +1,12 @@
+name = "english-practice"
+compatibility_date = "2025-09-01"
+pages_build_output_dir = "public"
+
+# ה-database_id מוחלף אוטומטית ב-GitHub Actions (scripts/deploy.sh)
+[[d1_databases]]
+binding = "DB"
+database_name = "english-practice-db"
+database_id = "00000000-0000-0000-0000-000000000000"
+
+[ai]
+binding = "AI"

@@ -1,0 +1,13 @@
+{
+  "name": "english-practice-app",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "wrangler pages dev",
+    "db:local": "wrangler d1 execute english-practice-db --local --file=schema.sql",
+    "deploy": "bash scripts/deploy.sh"
+  },
+  "devDependencies": {
+    "wrangler": "^4.40.0"
+  }
+}
